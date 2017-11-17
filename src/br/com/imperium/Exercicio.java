@@ -4,13 +4,13 @@ public class Exercicio {
 	private String nome;
 	private int id;
 	/*
-	 * Grupos musculares trabalhados por cada exercicio
-	 * analisar a viabilidade do estrategy p o grupo muscular mudar de acordo com o exercicio
+	 * Grupos musculares trabalhados por cada exercicio analisar a viabilidade
+	 * do estrategy p o grupo muscular mudar de acordo com o exercicio
 	 * https://www.feitodeiridium.com.br/melhores-exercicios-segundo-ciencia/
 	 */
 	private int repeticoes;
 	private int descanso;
-	
+
 	public Exercicio() {
 		this.nome = new String();
 		this.repeticoes = 0;
@@ -48,7 +48,12 @@ public class Exercicio {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
+	public String toString() {
+
+		return "Nome: " + this.getNome() + " - Numero ID: " + this.getId()
+				+ " - Numero repetições: " + this.getRepeticoes()
+				+ " - Tempo descanso: " + this.getDescanso()+"s";
+	}
 
 }

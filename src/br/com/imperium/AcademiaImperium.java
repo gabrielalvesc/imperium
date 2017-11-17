@@ -16,6 +16,7 @@ public class AcademiaImperium implements IFImperium{
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
+	
 	public List<Instrutor> getInstrutores() {
 		return instrutores;
 	}

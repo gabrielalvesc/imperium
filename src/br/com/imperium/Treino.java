@@ -34,5 +34,15 @@ public class Treino {
 	public void setDia(Dia dia) {
 		this.dia = dia;
 	}
+	
+	public String toString(){
+		String treino = "";
+		int exen = 1;
+		for(Exercicio ex: exercicios){
+			treino += +exen+"° Exercicio: "+ex.toString()+"\n";
+			exen++;
+		}
+		return treino;
+	}
 
 }

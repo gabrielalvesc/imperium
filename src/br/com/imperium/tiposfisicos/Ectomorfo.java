@@ -7,7 +7,7 @@ public class Ectomorfo implements FisicoStrategy {
 	@Override
 	public String treino() {
 		// TODO Auto-generated method stub
-		return "Ectomorfo";
+		return "Treino para Ectomorfo";
 	}
-
+	
 }
