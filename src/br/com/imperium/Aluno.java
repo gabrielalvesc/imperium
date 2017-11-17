@@ -16,6 +16,7 @@ public class Aluno extends Pessoa implements Observer{
 	
 	}
 	
+	
 	public void definirStatus(int status) {
 		this.status = status;
 	}
