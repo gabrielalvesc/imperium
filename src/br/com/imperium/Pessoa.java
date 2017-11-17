@@ -1,11 +1,11 @@
 package br.com.imperium;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Pessoa {
 	private String nome;
-	private Date dataDeNascimento;
-	private Date dataDocadastro;
+	private Calendar dataDeNascimento;
+	private Calendar dataDocadastro;
 	private Sexo sexo;
 	private Endereco endereco;
 	private String email;
@@ -19,19 +19,19 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public Date getDataDeNascimento() {
+	public Calendar getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(Date dataDeNascimento) {
+	public void setDataDeNascimento(Calendar dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
-	public Date getDataDocadastro() {
+	public Calendar getDataDocadastro() {
 		return dataDocadastro;
 	}
 
-	public void setDataDocadastro(Date dataDocadastro) {
+	public void setDataDocadastro(Calendar dataDocadastro) {
 		this.dataDocadastro = dataDocadastro;
 	}
 
