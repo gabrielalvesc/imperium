@@ -1,6 +1,6 @@
 package br.com.imperium.tiposfisicos;
 
-public class Endomorfo implements FisicoStrategy{
+public class Intermediario implements FisicoStrategy{
 
 	@Override
 	public String treino() {

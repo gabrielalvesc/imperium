@@ -4,7 +4,7 @@ package br.com.imperium;
 import java.util.List;
 
 public class Aluno extends Pessoa implements Observer{
-	private int status;
+	private Status status;
 	private int matricula;
 	private List<ExameCorporal> exameCorporal;
 	private List<Treino> treinoSemanal;
@@ -12,17 +12,25 @@ public class Aluno extends Pessoa implements Observer{
 	private TreinamentoDaSemana treinoMatriculado;
 	private Treino treino;
 
-	public Aluno(){
 	
+
+	
+	public Aluno(Status status, int matricula, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
+			Instrutor instrutor, TreinamentoDaSemana treinoMatriculado, Treino treino) {
+		this.status = status;
+		this.matricula = matricula;
+		this.exameCorporal = exameCorporal;
+		this.treinoSemanal = treinoSemanal;
+		this.instrutor = instrutor;
+		this.treinoMatriculado = treinoMatriculado;
+		this.treino = treino;
 	}
-	
-	//Kewyn viado kadjhgfjf
-	
-	public void definirStatus(int status) {
+
+	public void definirStatus(Status status) {
 		this.status = status;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
 
