@@ -1,3 +1,4 @@
+package br.com.imperium;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -5,11 +6,6 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import br.com.imperium.Aluno;
-import br.com.imperium.Endereco;
-import br.com.imperium.ExameCorporal;
-import br.com.imperium.Pessoa;
-import br.com.imperium.Sexo;
 import br.com.imperium.exceptions.AlunoJaExisteException;
 
 public class MainTesteJO {
