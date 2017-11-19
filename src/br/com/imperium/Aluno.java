@@ -1,12 +1,13 @@
 package br.com.imperium;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Pessoa implements Observer{
 	private Status status;
 	private int matricula;
-	private List<ExameCorporal> exameCorporal;
+	private List<ExameCorporal> exames;
 	private List<Treino> treinoSemanal;
 	private Instrutor instrutor;
 	private TreinamentoDaSemana treinoMatriculado;
@@ -15,15 +16,22 @@ public class Aluno extends Pessoa implements Observer{
 	
 
 	
-	public Aluno(Status status, int matricula, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
+	public Aluno(Status status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
 			Instrutor instrutor, TreinamentoDaSemana treinoMatriculado, Treino treino) {
 		this.status = status;
-		this.matricula = matricula;
-		this.exameCorporal = exameCorporal;
+		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.exames = exameCorporal;
 		this.treinoSemanal = treinoSemanal;
 		this.instrutor = instrutor;
 		this.treinoMatriculado = treinoMatriculado;
 		this.treino = treino;
+	}
+
+	public Aluno() {
+		this.status = Status.ATIVO;
+		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.exames = new ArrayList<ExameCorporal>();
+		this.treinoSemanal = new ArrayList<Treino>();
 	}
 
 	public void definirStatus(Status status) {
@@ -59,11 +67,11 @@ public class Aluno extends Pessoa implements Observer{
 	}
 
 	public List<ExameCorporal> getExameCorporal() {
-		return exameCorporal;
+		return exames;
 	}
 
 	public void setExameCorporal(List<ExameCorporal> exameCorporal) {
-		this.exameCorporal = exameCorporal;
+		this.exames = exameCorporal;
 	}
 
 
@@ -96,6 +104,10 @@ public class Aluno extends Pessoa implements Observer{
 		return "Dados do aluno:\nNome: " + this.getNome() + " - Email: "
 				+ this.getEmail() + " - Matricula: " + this.getMatricula()
 				+"\n Treino: Dia: "+this.treino.getDia()+" - Exercicios: "+this.treino.toString();
+	}
+	
+	public void adicionarExame(ExameCorporal e){
+		this.exames.add(e);
 	}
 
 	

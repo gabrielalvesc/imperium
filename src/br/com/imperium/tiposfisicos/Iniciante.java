@@ -15,12 +15,5 @@ public class Iniciante implements FisicoStrategy {
 		return "Treino para Ectomorfo";
 	}
 	
-	public List <Treino> getTreinos(){
-		List <Treino> treinos = new ArrayList<Treino>();
-		Treino t = new Treino();
-		
-	}
-	
-	
 	
 }

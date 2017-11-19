@@ -28,10 +28,5 @@ public class Avançado implements TreinoIF{
 	public List<Exercicio> imprimirExercicios() {
 		return this.exercicios;
 	}
-	
-	public void adicionarTreino(Dia dia, List<Exercicio> exercicios){
-		Avancado a = new
-		treinos.add(arg0)
-	}
 
 }

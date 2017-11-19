@@ -1,13 +1,13 @@
-package br.com.imperium;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Scanner;
-
-public class Teste {
-
-	public static void main(String[] args) {
+//package br.com.imperium;
+//
+//import java.util.ArrayList;
+//import java.util.Calendar;
+//import java.util.List;
+//import java.util.Scanner;
+//
+//public class Teste {
+//
+//	public static void main(String[] args) {
 		/*
 		 * Chegar na academia Matricular-se Agendar (talvez Ã±) e realizar exame
 		 * fÃ­sico Dizer tipo fÃ­sico Estilo de treino para o tipo fÃ­sico do
@@ -37,7 +37,7 @@ public class Teste {
 		 * //Criando os Exercicios Exercicio exercicioA = new Exercicio();
 		 * exercicioA.setNome("Abdominais"); exercicioA.setRepeticoes(20);
 		 * exercicioA.setDescanso(1); exercicioA.setId(1023); Exercicio
-		 * exercicioB = new Exercicio(); exercicioB.setNome("Flexão");
+		 * exercicioB = new Exercicio(); exercicioB.setNome("Flexï¿½o");
 		 * exercicioB.setRepeticoes(15); exercicioB.setDescanso(2);
 		 * exercicioB.setId(1043); List<Exercicio> exercicios = new
 		 * ArrayList<Exercicio>(); exercicios.add(exercicioA);
@@ -50,7 +50,7 @@ public class Teste {
 		 * Treino(exercicios, dia2); treino2.setExercicios(exercicios);
 		 * 
 		 * 
-		 * //Padrão Observer TreinamentoDaSemana treinoDaSemana = new
+		 * //Padrï¿½o Observer TreinamentoDaSemana treinoDaSemana = new
 		 * TreinamentoDaSemana(treino); aluno1.setDataDeNascimento(c);
 		 * aluno1.setDataDocadastro(d); aluno1.setSubject(treinoDaSemana);
 		 * treinoDaSemana.setTreino(treino2);
@@ -66,78 +66,73 @@ public class Teste {
 		/*
 		 * 
 		 */
-		AcademiaImperium academiaImperium = new AcademiaImperium();
-		
-		Scanner leitor = new Scanner(System.in);
-		int opcao = 0;
-		while (opcao != 6) {
-			
-			
-			System.out
-					.println("Menu:\n [1]Matricular-se\n[2]Realizar Exame Físico\n[3]Selecionar Tipo Fisico\n[4]...\n[5]...\n[6]sair"
-							);
-			switch(opcao){
-				
-				case 1: 
-					
-					Pessoa aluno1 = new Aluno();
-					System.out.println("Digite o Bairro");
-					Endereco endereco = new Endereco(); endereco.setBairro(leitor.next());
-					System.out.println("Digite a cidade");
-					endereco.setCep(5857-000); endereco.setCidade(leitor.next());
-					System.out.println("Digite a rua");
-					endereco.setNumero(49); endereco.setRua(leitor.next());
-					
-					aluno1.setEndereco(endereco); 
-					System.out.println("Digite o nome");
-					aluno1.setNome(leitor.next());
-					 
-					Sexo sexo = Sexo.MASCULINO;
-					aluno1.setSexo(sexo);
-					
-					System.out.println("Digite o telefone: (ddd)x xxxx-xxxx");
-					aluno1.setTelefone(leitor.next());
-					
-					
-					System.out.println("Digite a data de nascimento");
-					
-					Calendar c = Calendar.getInstance(); c.set(04, 07,1996);
-					Calendar d = Calendar.getInstance();
-					aluno1.setDataDeNascimento(c);
-					  
-					Exercicio exercicioA = new Exercicio();
-					
-					System.out.println("Digite o exercicio");
-					exercicioA.setNome(leitor.next());
-					exercicioA.setRepeticoes(20);
-					exercicioA.setDescanso(1);
-					exercicioA.setId(1023); Exercicio
-					exercicioB = new Exercicio();
-					exercicioB.setNome("Flexão");
-					exercicioB.setRepeticoes(15);
-					exercicioB.setDescanso(2);
-					exercicioB.setId(1043);
-					List<Exercicio> exercicios = new
-					ArrayList<Exercicio>();
-					exercicios.add(exercicioA);
-					exercicios.add(exercicioB);
-					academiaImperium.matricularAluno((Aluno) aluno1);
-					break;
-					
-				case 2:
-					
-					System.out.println("Digite a matricula do aluno");
-					int matricula = leitor.nextInt();
-					for(Aluno aluno: academiaImperium.getAlunos()){
-						if(aluno.getMatricula()==matricula){
-							ExameCorporal exame = new ExameCorporal();
-							exame.
-						}
-					}
-						
-					
-			}
-		}
-		leitor.close();
-	}
-}
+//		AcademiaImperium academiaImperium = new AcademiaImperium();
+//		
+//		Scanner leitor = new Scanner(System.in);
+//		int opcao = 0;
+//		while (opcao != 6) {
+//			
+//			
+//			System.out
+//					.println("Menu:\n [1]Matricular-se\n[2]Realizar Exame Fï¿½sico\n[3]Selecionar Tipo Fisico\n[4]...\n[5]...\n[6]sair"
+//							);
+//			switch(opcao){
+//				
+//				case 1: 
+//					
+//					Pessoa aluno1 = new Aluno(ATIVO, new ArrayList);
+//					System.out.println("Digite o Bairro");
+//					Endereco endereco = new Endereco(); endereco.setBairro(leitor.next());
+//					System.out.println("Digite a cidade");
+//					endereco.setCep(5857-000); endereco.setCidade(leitor.next());
+//					System.out.println("Digite a rua");
+//					endereco.setNumero(49); endereco.setRua(leitor.next());
+//					
+//					aluno1.setEndereco(endereco); 
+//					System.out.println("Digite o nome");
+//					aluno1.setNome(leitor.next());
+//					 
+//					Sexo sexo = Sexo.MASCULINO;
+//					aluno1.setSexo(sexo);
+//					
+//					System.out.println("Digite o telefone: (ddd)x xxxx-xxxx");
+//					aluno1.setTelefone(leitor.next());
+//					
+//					
+//					System.out.println("Digite a data de nascimento");
+//					
+//					Calendar c = Calendar.getInstance(); c.set(04, 07,1996);
+//					Calendar d = Calendar.getInstance();
+//					aluno1.setDataDeNascimento(c);
+//					  
+//					Exercicio exercicioA = new Exercicio();
+//					
+//					System.out.println("Digite o exercicio");
+//					exercicioA.setNome(leitor.next());
+//					exercicioA.setRepeticoes(20);
+//					//exercicioB = new Exercicio();
+//					//exercicioB.setNome("Flexï¿½o");
+//					//exercicioB.setRepeticoes(15);
+//					List<Exercicio> exercicios = new
+//					ArrayList<Exercicio>();
+//					exercicios.add(exercicioA);
+//					//exercicios.add(exercicioB);
+//					academiaImperium.matricularAluno((Aluno) aluno1);
+//					break;
+//					
+//				case 2:
+//					
+//					System.out.println("Digite a matricula do aluno");
+//					int matricula = leitor.nextInt();
+//					for(Aluno aluno: academiaImperium.getAlunos()){
+//						if(aluno.getMatricula()==matricula){
+//							ExameCorporal exame = new ExameCorporal();
+//						}
+//					}
+//						
+//					
+//			}
+//		}
+//		leitor.close();
+//	}
+//}

@@ -43,28 +43,12 @@ public class Exercicio {
 		this.repeticoes = repeticoes;
 	}
 
-	public int getDescanso() {
-		return descanso;
-	}
-
-	public void setDescanso(int descanso) {
-		this.descanso = descanso;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String toString() {
 
-		return "Nome: " + this.getNome() + " - Numero ID: " + this.getId()
+		return "Nome: " + this.getNome()
 				+ " - Número de séries: " + this.getSeries()
-				+ " - Numero repeti��es: " + this.getRepeticoes()
-				+ " - Tempo descanso: " + this.getDescanso()+"s";
+				+ " - Numero repeti��es: " + this.getRepeticoes();
+				
 	}
 
 }
