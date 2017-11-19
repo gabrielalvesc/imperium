@@ -2,10 +2,10 @@ package br.com.imperium;
 
 public class Exercicio {
 	private String nome;
-	
+
 	/*
-	 * Grupos musculares trabalhados por cada exercicio analisar a viabilidade
-	 * do estrategy p o grupo muscular mudar de acordo com o exercicio
+	 * Grupos musculares trabalhados por cada exercicio analisar a viabilidade do
+	 * estrategy p o grupo muscular mudar de acordo com o exercicio
 	 * https://www.feitodeiridium.com.br/melhores-exercicios-segundo-ciencia/
 	 */
 	private int repeticoes;
@@ -45,10 +45,9 @@ public class Exercicio {
 
 	public String toString() {
 
-		return "Nome: " + this.getNome()
-				+ " - Número de séries: " + this.getSeries()
-				+ " - Numero repeti��es: " + this.getRepeticoes();
-				
+		return "Nome: " + this.getNome() + " - Número de séries: " + this.getSeries() + " - Numero repeti��es: "
+				+ this.getRepeticoes();
+
 	}
 
 }

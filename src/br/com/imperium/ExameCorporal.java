@@ -132,7 +132,6 @@ public class ExameCorporal {
 		this.quadril = quadril;
 	}
 
-
 	public double getPescoco() {
 		return pescoco;
 	}
@@ -140,22 +139,21 @@ public class ExameCorporal {
 	public void setPescoco(double pescoco) {
 		this.pescoco = pescoco;
 	}
-	
-	public double getAltura(){
+
+	public double getAltura() {
 		return this.altura;
 	}
-	
-	public void setAltura(double altura){
+
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
-	
-	public double getPeso(){
+
+	public double getPeso() {
 		return this.peso;
 	}
-	
-	public void setPeso(double peso){
+
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-
 
 }

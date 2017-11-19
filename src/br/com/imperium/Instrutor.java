@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.imperium.exceptions.AlunoNaoExisteException;
 
-public class Instrutor extends Pessoa{
+public class Instrutor extends Pessoa {
 	private List<Aluno> alunos;
 
 	public int getQuantidadeDeAlunios() {
@@ -20,7 +20,6 @@ public class Instrutor extends Pessoa{
 		throw new AlunoNaoExisteException("O aluno pesquisado não existe no sistema.");
 	}
 
-
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
 	}
@@ -28,6 +27,5 @@ public class Instrutor extends Pessoa{
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
-
 
 }

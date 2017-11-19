@@ -1,10 +1,9 @@
 package br.com.imperium;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno extends Pessoa implements Observer{
+public class Aluno extends Pessoa implements Observer {
 	private Status status;
 	private int matricula;
 	private List<ExameCorporal> exames;
@@ -13,11 +12,8 @@ public class Aluno extends Pessoa implements Observer{
 	private TreinamentoDaSemana treinoMatriculado;
 	private Treino treino;
 
-	
-
-	
-	public Aluno(Status status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
-			Instrutor instrutor, TreinamentoDaSemana treinoMatriculado, Treino treino) {
+	public Aluno(Status status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal, Instrutor instrutor,
+			TreinamentoDaSemana treinoMatriculado, Treino treino) {
 		this.status = status;
 		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
 		this.exames = exameCorporal;
@@ -27,7 +23,6 @@ public class Aluno extends Pessoa implements Observer{
 		this.treino = treino;
 	}
 
-
 	public Aluno() {
 		this.status = Status.ATIVO;
 		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
@@ -35,7 +30,6 @@ public class Aluno extends Pessoa implements Observer{
 		this.treinoSemanal = new ArrayList<Treino>();
 	}
 
-	
 	public void definirStatus(Status status) {
 		this.status = status;
 	}
@@ -76,26 +70,25 @@ public class Aluno extends Pessoa implements Observer{
 		this.exames = exameCorporal;
 	}
 
-
 	@Override
 	public void setSubject(Subject subject) {
 		this.treinoMatriculado = (TreinamentoDaSemana) subject;
 		this.treino = treinoMatriculado.getTreino();
 		treinoMatriculado.registerObserver(this);
 	}
-	
-	public Subject getSubject(){
+
+	public Subject getSubject() {
 		return treinoMatriculado;
 	}
-	
-	public void removeSubject(){
+
+	public void removeSubject() {
 		treinoMatriculado.removeObserver(this);
 	}
 
 	@Override
 	public void update(Object treino) {
-		
-		this.treino = (Treino)treino;
+
+		this.treino = (Treino) treino;
 	}
 
 	public Treino getTreino() {
@@ -103,15 +96,13 @@ public class Aluno extends Pessoa implements Observer{
 	}
 
 	public String toString() {
-		return "Dados do aluno:\nNome: " + this.getNome() + " - Email: "
-				+ this.getEmail() + " - Matricula: " + this.getMatricula()
-				+"\n Treino: Dia: "+this.treino.getDia()+" - Exercicios: "+this.treino.toString();
-	}
-	
-	public void adicionarExame(ExameCorporal e){
-		this.exames.add(e);
+		return "Dados do aluno:\nNome: " + this.getNome() + " - Email: " + this.getEmail() + " - Matricula: "
+				+ this.getMatricula() + "\n Treino: Dia: " + this.treino.getDia() + " - Exercicios: "
+				+ this.treino.toString();
 	}
 
-	
+	public void adicionarExame(ExameCorporal e) {
+		this.exames.add(e);
+	}
 
 }

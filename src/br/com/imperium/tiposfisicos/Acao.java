@@ -7,7 +7,7 @@ public class Acao {
 		this.fisicoStrategy = fs;
 
 	}
-	
+
 	public String actionFisico() {
 		return fisicoStrategy.treino();
 	}
