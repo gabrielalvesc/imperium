@@ -1,13 +1,11 @@
 package br.com.imperium;
 
-import java.sql.Date;
-
 public class ExameCorporal {
 	private double peso;
 	private double altura;
 	private double panturrilhaDireita;
 	private double panturrilhaEsquerda;
-	private Date data;
+	private String data;
 	private double torax;
 	private double cintura;
 	private double quadril;
@@ -37,11 +35,11 @@ public class ExameCorporal {
 		this.panturrilhaEsquerda = panturrilhaEsquerda;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -142,5 +140,22 @@ public class ExameCorporal {
 	public void setPescoco(double pescoco) {
 		this.pescoco = pescoco;
 	}
+	
+	public double getAltura(){
+		return this.altura;
+	}
+	
+	public void setAltura(double altura){
+		this.altura = altura;
+	}
+	
+	public double getPeso(){
+		return this.peso;
+	}
+	
+	public void setPeso(double peso){
+		this.peso = peso;
+	}
+
 
 }

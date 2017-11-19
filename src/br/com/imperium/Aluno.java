@@ -1,27 +1,50 @@
 package br.com.imperium;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Pessoa implements Observer{
-	private int status;
+	private Status status;
 	private int matricula;
-	private List<ExameCorporal> exameCorporal;
+	private List<ExameCorporal> exames;
 	private List<Treino> treinoSemanal;
 	private Instrutor instrutor;
 	private TreinamentoDaSemana treinoMatriculado;
 	private Treino treino;
 
-	public Aluno(){
 	
+
+	
+	public Aluno(Status status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
+			Instrutor instrutor, TreinamentoDaSemana treinoMatriculado, Treino treino) {
+		this.status = status;
+		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.exames = exameCorporal;
+		this.treinoSemanal = treinoSemanal;
+		this.instrutor = instrutor;
+		this.treinoMatriculado = treinoMatriculado;
+		this.treino = treino;
 	}
+<<<<<<< HEAD
+
+	public Aluno() {
+		this.status = Status.ATIVO;
+		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.exames = new ArrayList<ExameCorporal>();
+		this.treinoSemanal = new ArrayList<Treino>();
+	}
+
+	public void definirStatus(Status status) {
+=======
 	
 	
 	public void definirStatus(int status) {
+>>>>>>> branch 'gabriel' of https://github.com/gabrielalvesc/imperium.git
 		this.status = status;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
 
@@ -50,11 +73,11 @@ public class Aluno extends Pessoa implements Observer{
 	}
 
 	public List<ExameCorporal> getExameCorporal() {
-		return exameCorporal;
+		return exames;
 	}
 
 	public void setExameCorporal(List<ExameCorporal> exameCorporal) {
-		this.exameCorporal = exameCorporal;
+		this.exames = exameCorporal;
 	}
 
 
@@ -87,6 +110,10 @@ public class Aluno extends Pessoa implements Observer{
 		return "Dados do aluno:\nNome: " + this.getNome() + " - Email: "
 				+ this.getEmail() + " - Matricula: " + this.getMatricula()
 				+"\n Treino: Dia: "+this.treino.getDia()+" - Exercicios: "+this.treino.toString();
+	}
+	
+	public void adicionarExame(ExameCorporal e){
+		this.exames.add(e);
 	}
 
 	
