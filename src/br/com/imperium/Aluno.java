@@ -26,6 +26,7 @@ public class Aluno extends Pessoa implements Observer{
 		this.treinoMatriculado = treinoMatriculado;
 		this.treino = treino;
 	}
+<<<<<<< HEAD
 
 	public Aluno() {
 		this.status = Status.ATIVO;
@@ -35,6 +36,11 @@ public class Aluno extends Pessoa implements Observer{
 	}
 
 	public void definirStatus(Status status) {
+=======
+	
+	
+	public void definirStatus(int status) {
+>>>>>>> branch 'gabriel' of https://github.com/gabrielalvesc/imperium.git
 		this.status = status;
 	}
 
