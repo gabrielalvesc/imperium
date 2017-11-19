@@ -1,5 +1,7 @@
 package br.com.imperium.tiposfisicos;
 
+import java.util.List;
+
 public class Acao {
 	private FisicoStrategy fisicoStrategy;
 
@@ -8,8 +10,8 @@ public class Acao {
 
 	}
 
-	public String actionFisico() {
-		return fisicoStrategy.treino();
+	public List<String> actionFisico() {
+		return fisicoStrategy.getTreinos();
 	}
 
 }

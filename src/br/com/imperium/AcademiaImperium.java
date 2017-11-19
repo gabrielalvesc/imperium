@@ -24,6 +24,9 @@ public class AcademiaImperium implements IFImperium {
 	public void setInstrutores(List<Instrutor> instrutores) {
 		this.instrutores = instrutores;
 	}
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 
 	@Override
 	public void matricularAluno(Aluno aluno) {

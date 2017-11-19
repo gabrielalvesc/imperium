@@ -3,13 +3,35 @@ package br.com.imperium;
 import java.util.Calendar;
 
 public class Pessoa {
-	private String nome;
+	protected String nome;
 	private Calendar dataDeNascimento;
 	private Calendar dataDocadastro;
-	private Sexo sexo;
+	private String sexo;
 	private Endereco endereco;
 	private String email;
 	private String telefone;
+	
+	
+
+	public Pessoa(String nome, Calendar dataDeNascimento, Calendar dataDocadastro, String sexo, Endereco endereco,
+			String email, String telefone) {
+		this.nome = nome;
+		this.dataDeNascimento = dataDeNascimento;
+		this.dataDocadastro = dataDocadastro;
+		this.sexo = sexo;
+		this.endereco = endereco;
+		this.email = email;
+		this.telefone = telefone;
+	}
+	public Pessoa() {
+		this.nome = "";
+		this.dataDeNascimento = Calendar.getInstance();
+		this.dataDocadastro = Calendar.getInstance();
+		this.sexo = "";
+		this.endereco = new Endereco();
+		this.email = "";
+		this.telefone = "";
+	}
 
 	public String getNome() {
 		return nome;
@@ -35,11 +57,11 @@ public class Pessoa {
 		this.dataDocadastro = dataDocadastro;
 	}
 
-	public Sexo getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(Sexo sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 

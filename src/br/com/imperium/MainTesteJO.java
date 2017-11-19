@@ -9,8 +9,12 @@ import javax.swing.JOptionPane;
 public class MainTesteJO {
 
 	public static void main(String[] args) {
-
-		JOptionPane.showMessageDialog(null, "Bem-vindo à academia Imperium!!! :)");
+		String arquivoAlunos = "ArquivoAlunos.txt";
+		String arquivoInstrutores = "ArquivoInstrutores.txt";
+		AcademiaImperium academia = new AcademiaImperium();
+		Aluno p = new Aluno();
+	
+		JOptionPane.showMessageDialog(null, "Bem-vindo à academia Imperium!");
 		boolean fecharPrograma = false;
 		while (fecharPrograma != true) {
 			String menuPrincipal = JOptionPane.showInputDialog("1- Aluno\n2- Instrutor\n3- ...\n4- ...\n\nX- Sair")

@@ -1,11 +1,27 @@
 package br.com.imperium;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.imperium.exceptions.AlunoNaoExisteException;
 
 public class Instrutor extends Pessoa {
+
 	private List<Aluno> alunos;
+
+	public Instrutor(String nome, Calendar dataDeNascimento, Calendar dataDocadastro, String sexo, Endereco endereco,
+			String email, String telefone, List<Aluno> alunos) {
+		super(nome, dataDeNascimento, dataDocadastro, sexo, endereco, email, telefone);
+		this.alunos = alunos;
+	}
+	
+
+	public Instrutor() {
+		super("", Calendar.getInstance(), Calendar.getInstance(), "", new Endereco(), "", "");
+		this.alunos = new ArrayList<Aluno>();
+	}
+
 
 	public int getQuantidadeDeAlunios() {
 		return alunos.size();
