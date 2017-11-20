@@ -18,6 +18,27 @@ public class ExameCorporal {
 	private double coxaEsquerda;
 	private double imc;
 	private double gluteo;
+	
+
+	public ExameCorporal() {
+		this.peso = 0.0;
+		this.altura = 0.0;
+		this.panturrilhaDireita = 0.0;
+		this.panturrilhaEsquerda = 0.0;
+		this.data = "";
+		this.torax = 0.0;
+		this.cintura = 0.0;
+		this.quadril = 0.0;
+		this.bracoEsquerdo = 0.0;
+		this.bracoDireito = 0.0;
+		this.antebracoEsquerdo = 0.0;
+		this.antebracoDireito = 0.0;
+		this.pescoco = 0.0;
+		this.coxaDireita = 0.0;
+		this.coxaEsquerda = 0.0;
+		this.imc = 0.0;
+		this.gluteo = 0.0;
+	}
 
 	public double getPanturrilhaDireita() {
 		return panturrilhaDireita;
@@ -94,6 +115,9 @@ public class ExameCorporal {
 	public double getImc() {
 		return imc;
 	}
+	public void setImc(double imc) {
+		this.imc = imc;
+	}
 
 	public void calcularImc() {
 		double imc = this.peso / (this.altura * this.altura);
@@ -155,5 +179,16 @@ public class ExameCorporal {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+
+	@Override
+	public String toString() {
+		return this.peso+"#"+this.altura+"#"+this.panturrilhaDireita
+				+"#"+this.panturrilhaEsquerda+"#"+this.data+"#"+this.torax+"#"
+				+this.cintura + "#" + this.quadril + "#" + this.bracoEsquerdo + "#"
+				+ this.bracoDireito + "#" + this.antebracoEsquerdo + "#" + this.antebracoDireito
+				+ "#" + this.pescoco + "#" + this.coxaDireita + "#" + this.coxaEsquerda + "#"
+				+ this.imc + "#" + this.gluteo;
+	}
+	
 
 }

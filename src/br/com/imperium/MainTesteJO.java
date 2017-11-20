@@ -43,11 +43,11 @@ public class MainTesteJO {
 							// JOptionPane.showMessageDialog(null, e.getMessage());
 							// }
 							String sexo = JOptionPane.showInputDialog(null, "Sexo: \n(Ex: Masculino)").toUpperCase();
-							Sexo sex = null;
-							if (sexo.equals("MASCULINO")) {
-								a.setSexo(sex.MASCULINO);
-							} else if (sexo.equals("FEMININO")) {
-								a.setSexo(sex.FEMININO);
+							String sex = null;
+							//if (sexo.equals("MASCULINO")) {
+							//	a.setSexo(sex.MASCULINO);
+						//	} else if (sexo.equals("FEMININO")) {
+								//a.setSexo(sex.FEMININO);
 							}
 							// pegar a data de nascimento (Vê se cria a classe data ou usa a do java msm)
 							Calendar dtCadastro = null;

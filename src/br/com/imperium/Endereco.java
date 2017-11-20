@@ -46,5 +46,9 @@ public class Endereco {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+	@Override
+	public String toString() {
+		return this.cidade+"#"+this.bairro+"#"+this.rua+"#"+this.cep+"#"+this.numero;
+	}
 
 }
