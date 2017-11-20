@@ -12,7 +12,7 @@ public class Aluno extends Pessoa {
 	private Instrutor instrutor;
 
 
-	public Aluno(String nome, Calendar dataDeNascimento, Calendar dataDocadastro, String sexo, Endereco endereco,
+	public Aluno(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
 			String email, String telefone, String status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
 			Instrutor instrutor, Treino treino) {
 		super(nome, dataDeNascimento, dataDocadastro, sexo, endereco, email, telefone);
@@ -24,7 +24,7 @@ public class Aluno extends Pessoa {
 	}
 
 	public Aluno() {
-		super("", Calendar.getInstance(), Calendar.getInstance(), "", new Endereco(), "", "");
+		super("", "", "", "", new Endereco(), "", "");
 		this.status = "";
 		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
 		this.exames = new ArrayList<ExameCorporal>();

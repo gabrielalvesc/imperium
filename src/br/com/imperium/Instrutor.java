@@ -10,7 +10,7 @@ public class Instrutor extends Pessoa {
 
 	private List<Aluno> alunos;
 
-	public Instrutor(String nome, Calendar dataDeNascimento, Calendar dataDocadastro, String sexo, Endereco endereco,
+	public Instrutor(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
 			String email, String telefone, List<Aluno> alunos) {
 		super(nome, dataDeNascimento, dataDocadastro, sexo, endereco, email, telefone);
 		this.alunos = alunos;
@@ -18,7 +18,7 @@ public class Instrutor extends Pessoa {
 	
 
 	public Instrutor() {
-		super("", Calendar.getInstance(), Calendar.getInstance(), "", new Endereco(), "", "");
+		super("", "", "", "", new Endereco(), "", "");
 		this.alunos = new ArrayList<Aluno>();
 	}
 
