@@ -7,7 +7,6 @@ public class Aluno extends Pessoa {
 	private String status;
 	private int matricula;
 	private List<ExameCorporal> exames;
-
 	public Aluno(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
 			String email, String telefone, String status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
 			Instrutor instrutor, Treino treino) {

@@ -2,7 +2,7 @@ package br.com.imperium;
 
 
 public class Pessoa {
-	private String nome;
+	protected String nome;
 	private String dataDeNascimento;
 	private String dataDocadastro;
 	private String sexo;
@@ -25,6 +25,7 @@ public class Pessoa {
 	public Pessoa() {
 		this.nome = "";
 		this.dataDeNascimento = "";
+		this.dataDocadastro = "";
 		this.dataDocadastro = "";
 		this.sexo = "";
 		this.endereco = new Endereco();
