@@ -1,11 +1,12 @@
 package br.com.imperium;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Pessoa {
 	protected String nome;
-	private Calendar dataDeNascimento;
-	private Calendar dataDocadastro;
+	private String dataDeNascimento;
+	private String dataDocadastro;
 	private String sexo;
 	private Endereco endereco;
 	private String email;
@@ -13,7 +14,7 @@ public class Pessoa {
 	
 	
 
-	public Pessoa(String nome, Calendar dataDeNascimento, Calendar dataDocadastro, String sexo, Endereco endereco,
+	public Pessoa(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
 			String email, String telefone) {
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -25,8 +26,9 @@ public class Pessoa {
 	}
 	public Pessoa() {
 		this.nome = "";
-		this.dataDeNascimento = Calendar.getInstance();
-		this.dataDocadastro = Calendar.getInstance();
+		this.dataDeNascimento = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		this.dataDocadastro = sdf.format(new Date());
 		this.sexo = "";
 		this.endereco = new Endereco();
 		this.email = "";
@@ -41,19 +43,19 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public Calendar getDataDeNascimento() {
+	public String getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(Calendar dataDeNascimento) {
+	public void setDataDeNascimento(String dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
-	public Calendar getDataDocadastro() {
+	public String getDataDocadastro() {
 		return dataDocadastro;
 	}
 
-	public void setDataDocadastro(Calendar dataDocadastro) {
+	public void setDataDocadastro(String dataDocadastro) {
 		this.dataDocadastro = dataDocadastro;
 	}
 
