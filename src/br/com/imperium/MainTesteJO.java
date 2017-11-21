@@ -1,23 +1,17 @@
 package br.com.imperium;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 
-import jdk.nashorn.internal.scripts.JO;
+import br.com.imperium.exceptions.AlunoNaoExisteException;
+import br.com.imperium.exceptions.InstrutorJaCadastradoException;
+import br.com.imperium.exceptions.InstrutorNaoExisteException;
 
 public class MainTesteJO {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		String arquivoAlunos = "ArquivoAlunos.txt";
 		String arquivoInstrutores = "ArquivoInstrutores.txt";
 		AcademiaImperium academia = new AcademiaImperium();
-		Aluno p = new Aluno();
-		Date hoje = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
 		JOptionPane.showMessageDialog(null, "Bem-vindo à academia Imperium!  :) ");
 		boolean fecharPrograma = false;
 		while (fecharPrograma != true) {
@@ -27,54 +21,33 @@ public class MainTesteJO {
 				boolean sair = false;
 				while (sair != true) {
 					String menuAluno = JOptionPane.showInputDialog(
-							"1- Cadastrar aluno\n2- Editar aluno\n3- Pesquisar aluno\n4- Listar alunos\n5- Ramover aluno\n\n6- Voltar");
+							"1- Cadastrar aluno\n2- Editar aluno\n3- Pesquisar aluno\n4- Listar alunos\n5- Remover aluno\n\n6- Voltar");
 					switch (menuAluno) {
 					case "1":
 						boolean continuar = true;
 						while (continuar != false) {
-							Aluno a = new Aluno();
-							String nome = JOptionPane.showInputDialog("Nome:").toUpperCase();
-							a.setNome(nome);
-							// setar o nome
-							// a.setNome(nome);
-							long cpf = Long
-									.parseLong(JOptionPane.showInputDialog("CPF: \n(Digite apenas os números do CPF)"));
-							// criar CPF na pessoa
-							// try {
-							// //verificar se o cpf já não está cadastrado
-							// } catch (AlunoJaExisteException e) {
-							// JOptionPane.showMessageDialog(null,
-							// e.getMessage());
-							// }
-
-							String sexo = JOptionPane.showInputDialog(null, "Sexo: \n(Ex: Masculino)").toUpperCase();
-							String sex = null;
-							//if (sexo.equals("MASCULINO")) {
-							//	a.setSexo(sex.MASCULINO);
-						//	} else if (sexo.equals("FEMININO")) {
-								//a.setSexo(sex.FEMININO);
-							}
-							// pegar a data de nascimento (Vê se cria a classe data ou usa a do java msm)
-							Calendar dtCadastro = null;
-							a.setDataDocadastro(dtCadastro.getInstance());
-
-							String sexo = JOptionPane.showInputDialog(null, "Sexo: [M/F]").toUpperCase();
-
-							// pegar a data de nascimento (Vê se cria a classe
-							// data ou usa a do java msm)
-							a.setDataDocadastro(sdf.format(hoje));
-
-							Endereco e = new Endereco();
-							e.setRua(JOptionPane.showInputDialog("Logradouro: "));
-							e.setBairro(JOptionPane.showInputDialog("Bairro: "));
-							e.setCep(Integer.parseInt(JOptionPane.showInputDialog("CEP: ")));
-							e.setNumero(JOptionPane.showInputDialog("Número: "));
-							e.setCidade(JOptionPane.showInputDialog("Cidade: "));
-							a.setEndereco(e);
-							a.setTelefone(JOptionPane.showInputDialog("Telefone: "));
+							Aluno aluno = new Aluno();
+							aluno.setNome(JOptionPane.showInputDialog("Nome: "));
+							aluno.setCpf(JOptionPane.showInputDialog("CPF: \n(Digite apenas os números do CPF)"));
+							aluno.setSexo(JOptionPane.showInputDialog(null, "Sexo: \n(Ex: Masculino)").toUpperCase());
+							aluno.setDataDeNascimento(
+									(JOptionPane.showInputDialog(null, "Data de nascimento: \n(Ex: xx/yy/mmnn)")));
+							aluno.setEmail(JOptionPane.showInputDialog("Email: "));
+							aluno.setTelefone(JOptionPane.showInputDialog("Telefone: "));
+							aluno.setDataDocadastro(
+									JOptionPane.showInputDialog(null, "Data do cadastro: \n(Ex: xx/yy/mmnn)"));
+							aluno.definirStatus("ativo");
+							aluno.setMatricula(1 + (int) (Math.random() * 1000));
+							Endereco endereco = new Endereco();
+							endereco.setRua(JOptionPane.showInputDialog("Logradouro: "));
+							endereco.setBairro(JOptionPane.showInputDialog("Bairro: "));
+							endereco.setCep(Integer.parseInt(JOptionPane.showInputDialog("CEP: ")));
+							endereco.setNumero(JOptionPane.showInputDialog("Número: "));
+							endereco.setCidade(JOptionPane.showInputDialog("Cidade: "));
+							aluno.setEndereco(endereco);
 							JOptionPane.showMessageDialog(null, "EXAME CORPORAL");
 							ExameCorporal x = new ExameCorporal();
-							x.setData(sdf.format(hoje));
+							x.setData((JOptionPane.showInputDialog(null, "Data de hoje: \n(Ex: xx/yy/mmnn)")));
 							x.setAltura(Double.parseDouble(JOptionPane.showInputDialog("Altura: ")));
 							x.setPeso(Double.parseDouble(JOptionPane.showInputDialog("Peso: ")));
 							x.setAntebracoDireito(
@@ -96,27 +69,15 @@ public class MainTesteJO {
 							x.setTorax(Double.parseDouble(JOptionPane.showInputDialog("Torax: ")));
 							x.calcularImc();
 							double imc = x.getImc();
+							x.setImc(imc);
+							aluno.adicionarExame(x);
 							JOptionPane.showMessageDialog(null, "IMC: " + imc);
-							// parte do nível (iniciante/intermediario/avançado)
-							// Strategy de kew viadage
-							// JOptionPane.showMessageDialog(null,
-							// a.toString());
 							JOptionPane.showMessageDialog(null,
-									"Nome: " + a.getNome() + "\nMatricula: " + a.getMatricula());// Só
-																									// um
-																									// teste
+									"Nome: " + aluno.getNome() + "\nMatricula: " + aluno.getMatricula());
 
 							// parte do nível (iniciante/intermediario/avançado)
-							// Strategy de kew viadage
-							int listaSizeBefore = academia.getAlunos().size();
-							academia.matricularAluno(a);
-							int listaSizeAfter = academia.getAlunos().size();
-							if (listaSizeBefore < listaSizeAfter) {
-								JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso...");
-							} else {
-								JOptionPane.showMessageDialog(null, "Aluno não cadastrado");
-							}
-							JOptionPane.showMessageDialog(null, a.toString());
+							academia.matricularAluno(aluno);
+							JOptionPane.showMessageDialog(null, aluno.toString());
 							int resp = JOptionPane.showConfirmDialog(null, "Deseja cadastrar mais um aluno ?");
 							if (resp == 0) {
 								continuar = true;
@@ -138,30 +99,34 @@ public class MainTesteJO {
 						// pra dar set nas mudanças
 						break;
 					case "3":
-						// Try/Catch (MatriculaNãoExisteEception)
 						matricula = Integer.parseInt(JOptionPane.showInputDialog(""));
-						// aluno = academia.pesquisaAluno(int matricula); >>>
-						// Esse método deve retornar um aluno
-						// toString pra mostrar as infos sobre esse aluno
-					case "4":
-						// List<Aluno> lista = academia.getAlunos();
-						// Varre a lista e exibe os alunos matriculados
-					case "5":
-						// Try/Catch (MatriculaNãoExisteEception)
-						matricula = Integer.parseInt(JOptionPane.showInputDialog(""));
-						// aluno = academia.pesquisaAluno(int matricula); >>>
-						// Esse método deve retornar um aluno
-						int resultado = JOptionPane.showConfirmDialog(null,
-								"Deseja excluir esse aluno ? "/*
-																 * +
-																 * aluno.getNome
-																 * ()
-																 */);
-						if (resultado == 0) {
-							// removerAluno(matricula);
-						} else if (resultado == 1) {
-							sair = false;
+						try{
+							JOptionPane.showMessageDialog(null, academia.pesquisarAluno(matricula));
+							
+						}catch(AlunoNaoExisteException exe) {
+							exe.getMessage();
 						}
+						break;
+					case "4":
+						String varAlunos = null;
+						for(Aluno al: academia.getAlunos()) {
+							varAlunos+= "Nome: "+al.getNome()+" Matrícula: "+al.getMatricula()+"\n";
+						}
+						JOptionPane.showMessageDialog(null, varAlunos);
+						break;
+					case "5":
+						
+						matricula = Integer.parseInt(JOptionPane.showInputDialog("Matricula do aluno que deseja remover?"));
+						
+						try {
+							academia.pesquisarAluno(matricula);
+							academia.removerAluno(matricula);
+							JOptionPane.showMessageDialog(null, "Aluno removido com sucesso.");
+						}catch(AlunoNaoExisteException ex) {
+							ex.getMessage();
+						}
+						break;
+						
 					case "6":
 						sair = true;
 						break;
@@ -173,21 +138,20 @@ public class MainTesteJO {
 				break;
 			case "2":
 				String menuInstrutor = JOptionPane.showInputDialog(
-						"1- Cadastrar instrutor\n2- Editar instrutor\n3- Pesquisar instrutor\n4- Listar instrutores\n5- Ramover instrutor\n\n6- Voltar");
+						"1- Cadastrar instrutor\n2- Editar instrutor\n3- Pesquisar instrutor\n4- Listar instrutores\n5- Remover instrutor\n\n6- Voltar");
 				boolean sairMenu = false;
 				while (sairMenu != true) {
 					switch (menuInstrutor) {
 					case "1":
-						boolean continuar = false;
-						// Try/Catch (InstrutorJaCadastradoException)
 						Instrutor i = new Instrutor();
-						i.setDataDocadastro(sdf.format(hoje));
 						i.setNome(JOptionPane.showInputDialog("Nome completo: ").toUpperCase());
-						// i.setCpf(int/string CPF);
+						i.setCpf(JOptionPane.showInputDialog("CPF: "));
 						i.setSexo(JOptionPane.showInputDialog("Sexo: [M/F]").toUpperCase());
 						i.setDataDeNascimento(JOptionPane.showInputDialog("Data de Nascimento: \n(Ex: 12/12/2012)"));
 						i.setEmail(JOptionPane.showInputDialog("E-mail: ").toUpperCase());
 						i.setTelefone(JOptionPane.showInputDialog("Telefone: "));
+						i.setDataDeNascimento(JOptionPane.showInputDialog("Data de nascimento"));
+						i.setDataDocadastro(JOptionPane.showInputDialog("Data do cadastro: "));
 						Endereco e = new Endereco();
 						e.setRua(JOptionPane.showInputDialog("Logradouro: ").toUpperCase());
 						e.setNumero(JOptionPane.showInputDialog("Número: "));
@@ -195,25 +159,17 @@ public class MainTesteJO {
 						e.setBairro(JOptionPane.showInputDialog("Bairro: ").toUpperCase());
 						e.setCidade(JOptionPane.showInputDialog("Cidade: ").toUpperCase());
 						i.setEndereco(e);
-						int listaSizeBefore = academia.getInstrutores().size();
-						academia.cadastrarInstrutor(i);
-						int listaSizeAfter = academia.getInstrutores().size();
-						if (listaSizeBefore < listaSizeAfter) {
+						try {
+							academia.cadastrarInstrutor(i);
 							JOptionPane.showMessageDialog(null, "Instrutor cadastrado com sucesso...");
-						} else {
-							JOptionPane.showMessageDialog(null, "Instrutor não cadastrado");
-						}
-						int resp = JOptionPane.showConfirmDialog(null, "Deseja cadastrar mais um instrutor ?");
-						if (resp == 0) {
-							continuar = true;
-						} else if (resp == 1) {
-							continuar = false;
+						}catch(InstrutorJaCadastradoException exe) {
+							exe.getMessage();
 						}
 						break;
 					case "2":
 						// Aqui vai ter um try/catch
 						// (MatriculaNãoExisteException)
-						int matricula = Integer.parseInt(JOptionPane.showInputDialog("Digite a matrícula do aluno: "));
+						String cpf = JOptionPane.showInputDialog("Digite o CPF do instrutor: ");
 						// Instrutor ins = academia.pesquisaInstrutor(int
 						// matricula);
 						// >>> Esse método deve retornar um instrutor
@@ -224,39 +180,38 @@ public class MainTesteJO {
 						// JOptionPane.showInputDialog(infoInstrutor);
 						// Faz um switch para as opções e depois um inputDialog
 						// pra dar set nas mudanças
+						break;
 					case "3":
-						// Try/Catch (MatriculaNãoExisteEception)
-						matricula = Integer.parseInt(JOptionPane.showInputDialog(""));
-						// instrutor = academia.pesquisaInstrutor(int
-						// matricula); >>>
-						// Esse método deve retornar um instrutor
-						// toString pra mostrar as infos sobre esse instrutor
-					case "4":
-						// List<Aluno> lista = academia.getAlunos();
-						// Varre a lista e exibe os alunos matriculados
-					case "5":
-						// Try/Catch (MatriculaNãoExisteEception)
-						matricula = Integer.parseInt(JOptionPane.showInputDialog(""));
-						// aluno = academia.pesquisaAluno(int matricula); >>>
-						// Esse método deve retornar um aluno
-						int resultado = JOptionPane.showConfirmDialog(null,
-								"Deseja excluir esse aluno ? "/*
-																 * +
-																 * aluno.getNome
-																 * ()
-																 */);
-						if (resultado == 0) {
-							listaSizeBefore = academia.getInstrutores().size();
-							// removerAluno(matricula);
-							listaSizeAfter = academia.getInstrutores().size();
-							if (listaSizeBefore < listaSizeAfter) {
-								JOptionPane.showMessageDialog(null, "Instrutor não removido...");
-							} else {
-								JOptionPane.showMessageDialog(null, "Instrutor removido...");
-							}
-						} else if (resultado == 1) {
-							sairMenu = false;
+						String cpfer = JOptionPane.showInputDialog("Digite o CPF do instrutor: ");
+						try {
+							
+							String varer = academia.pesquisarIntsrutor(cpfer);
+							JOptionPane.showMessageDialog(null, varer);
+						}catch(InstrutorNaoExisteException exe) {
+							exe.getMessage();
 						}
+						break;
+					case "4":
+						String insTexto = "";
+						for(Instrutor ins: academia.getInstrutores()) {
+							insTexto+=ins.getNome()+"\n";
+							
+						}
+						JOptionPane.showMessageDialog(null, insTexto);
+						break;
+					case "5":
+						String cpfRemove = JOptionPane.showInputDialog("CPF do instrutor que deseja remover: ");
+						try {
+							academia.pesquisarIntsrutor(cpfRemove);
+							academia.removerInstrutor(cpfRemove);
+							JOptionPane.showMessageDialog(null, "Instrutor removido!");
+						}catch(InstrutorNaoExisteException exe) {
+							exe.getMessage();
+							exe.printStackTrace();
+			
+						}
+								
+						break;
 					case "6":
 						sairMenu = true;
 						break;

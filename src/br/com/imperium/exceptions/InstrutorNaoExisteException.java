@@ -1,14 +1,12 @@
 package br.com.imperium.exceptions;
 
-public class MatriculaNaoExisteEception extends Exception {
+public class InstrutorNaoExisteException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	public MatriculaNaoExisteEception (String erro){
+	public InstrutorNaoExisteException(String erro) {
 		super(erro);
 	}
-
 }

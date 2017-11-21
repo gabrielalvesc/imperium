@@ -2,17 +2,18 @@ package br.com.imperium;
 
 
 public class Pessoa {
-	protected String nome;
+	private String nome;
 	private String dataDeNascimento;
 	private String dataDocadastro;
 	private String sexo;
 	private String email;
 	private String telefone;
+	private String cpf;
 	private Endereco endereco;
 	
 	
 
-	public Pessoa(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
+	public Pessoa(String nome, String dataDeNascimento, String dataDocadastro, String sexo,String cpf, Endereco endereco,
 			String email, String telefone) {
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -21,6 +22,7 @@ public class Pessoa {
 		this.endereco = endereco;
 		this.email = email;
 		this.telefone = telefone;
+		this.setCpf(cpf);
 	}
 	public Pessoa() {
 		this.nome = "";
@@ -31,6 +33,7 @@ public class Pessoa {
 		this.endereco = new Endereco();
 		this.email = "";
 		this.telefone = "";
+		this.setCpf("");
 	}
 
 	public String getNome() {
@@ -87,6 +90,12 @@ public class Pessoa {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 }

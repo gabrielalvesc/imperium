@@ -42,17 +42,19 @@ public class Persistencia {
 					al.setSexo(p[3]);
 					al.setEmail(p[4]);
 					al.setTelefone(p[5]);
-					
+					al.definirStatus(p[6]);
+					al.setMatricula(Integer.parseInt(p[7]));
+					al.setCpf(p[8]);
 					Endereco e = new Endereco();					
-					e.setCidade(p[6]);
-					e.setBairro(p[7]);
-					e.setRua(p[8]);
-					e.setNumero(p[9]);
-					e.setCep(Integer.parseInt(p[10]));
-					e.setNumero(p[11]);
+					e.setCidade(p[9]);
+					e.setBairro(p[10]);
+					e.setRua(p[11]);
+					e.setNumero(p[12]);
+					e.setCep(Integer.parseInt(p[13]));
+					e.setNumero(p[14]);
 					al.setEndereco(e);
-					int temp = Integer.parseInt(p[12]);
-					int curso = 13;
+					int temp = Integer.parseInt(p[15]);
+					int curso = 16;
 					for(int i = 0; i < temp; i++) {
 						ExameCorporal ec = new ExameCorporal();
 						ec.setPeso(Double.parseDouble(p[curso++]));
@@ -119,17 +121,18 @@ public class Persistencia {
 					i.setSexo(p[3]);
 					i.setEmail(p[4]);
 					i.setTelefone(p[5]);
+					i.setCpf(p[6]);
 					
 					Endereco e = new Endereco();					
-					e.setCidade(p[6]);
-					e.setBairro(p[7]);
-					e.setRua(p[8]);
-					e.setNumero(p[9]);
-					e.setCep(Integer.parseInt(p[10]));
-					e.setNumero(p[11]);
+					e.setCidade(p[7]);
+					e.setBairro(p[8]);
+					e.setRua(p[9]);
+					e.setNumero(p[10]);
+					e.setCep(Integer.parseInt(p[11]));
+					e.setNumero(p[12]);
 					i.setEndereco(e);
-					int temp = Integer.parseInt(p[12]);
-					int curso = 13;
+					int temp = Integer.parseInt(p[13]);
+					int curso = 14;
 					for(int k = 0; k < temp; k++) {
 						for(Aluno a: alunos) {
 							if(a.getEmail().equals(p[curso++])) {

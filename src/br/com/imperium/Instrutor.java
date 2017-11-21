@@ -9,20 +9,20 @@ public class Instrutor extends Pessoa {
 
 	private List<Aluno> alunos;
 
-	public Instrutor(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
-			String email, String telefone, List<Aluno> alunos) {
-		super(nome, dataDeNascimento, dataDocadastro, sexo, endereco, email, telefone);
+	public Instrutor(String nome, String dataDeNascimento, String dataDocadastro, String sexo, String cpf,
+			Endereco endereco, String email, String telefone, List<Aluno> alunos) {
+		super(nome, dataDeNascimento, dataDocadastro, sexo, cpf, endereco, email, telefone);
 		this.alunos = alunos;
 	}
+
 	public void addAluno(Aluno al) {
 		this.alunos.add(al);
 	}
 
 	public Instrutor() {
-		super("", "", "", "", new Endereco(), "", "");
+		super("", "", "", "","", new Endereco(), "", "");
 		this.alunos = new ArrayList<Aluno>();
 	}
-
 
 	public int getQuantidadeDeAlunos() {
 		return alunos.size();
@@ -44,13 +44,20 @@ public class Instrutor extends Pessoa {
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
+
 	public String toStringModeloArquivo() {
-		String texto = getNome() + "#" + getDataDeNascimento() + "#" + getDataDocadastro() + "#" + getSexo() + "#"
-				+ "#" + getEmail() + "#" + getTelefone() + "#"+getEndereco().toString()+"#"+this.alunos.size()+"#";
-		for(Aluno al: this.alunos) {
-			texto+=al.getMatricula()+"#";
+		String texto = getNome() + "#" + getDataDeNascimento() + "#" + getDataDocadastro() + "#" + getSexo() + "#" + "#"
+				+ getEmail() + "#" + getTelefone() + "#" +getCpf()+"#"+ getEndereco().toString() + "#" + this.alunos.size() + "#";
+		for (Aluno al : this.alunos) {
+			texto += al.getMatricula() + "#";
 		}
-		
+
+		return texto;
+	}
+	public String toString() {
+		String texto = getNome() + "\n" + getDataDeNascimento() + "\n" + getDataDocadastro() + "\n" + getSexo() + "\n"
+				+ "\n" + getEmail() + "\n" + getTelefone()+"\n"+getCpf();
+
 		return texto;
 	}
 

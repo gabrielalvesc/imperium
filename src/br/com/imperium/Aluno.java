@@ -7,19 +7,19 @@ public class Aluno extends Pessoa {
 	private String status;
 	private int matricula;
 	private List<ExameCorporal> exames;
-	public Aluno(String nome, String dataDeNascimento, String dataDocadastro, String sexo, Endereco endereco,
+	public Aluno(String nome, String dataDeNascimento, String dataDocadastro, String sexo, String cpf, Endereco endereco,
 			String email, String telefone, String status, List<ExameCorporal> exameCorporal, List<Treino> treinoSemanal,
 			Instrutor instrutor, Treino treino) {
-		super(nome, dataDeNascimento, dataDocadastro, sexo, endereco, email, telefone);
+		super(nome, dataDeNascimento, dataDocadastro, sexo, cpf, endereco, email, telefone);
 		this.status = status;
-		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.matricula = 0;
 		this.exames = exameCorporal;
 	}
 
 	public Aluno() {
-		super("", "", "", "", new Endereco(), "", "");
+		super("", "", "", "","", new Endereco(), "", "");
 		this.status = "";
-		this.matricula = new AcademiaImperium().getAlunos().size() + 1;
+		this.matricula = 0;
 		this.exames = new ArrayList<ExameCorporal>();
 	}
 
@@ -54,10 +54,16 @@ public class Aluno extends Pessoa {
 
 	public String toStringModeloArquivo() {
 		String texto = getNome() + "#" + getDataDeNascimento() + "#" + getDataDocadastro() + "#" + getSexo() + "#"
-				+ "#" + getEmail() + "#" + getTelefone() + "#"+this.getEndereco().toString()+"#"+this.exames.size()+"#";
+				+ "#" + getEmail() + "#" + getTelefone()+"#"+getStatus()+"#"+getMatricula()+"#"+getCpf()+"#"+this.getEndereco().toString()+"#"+this.exames.size()+"#";
 		for (ExameCorporal ec : this.exames) {
 			texto += ec.toString() + "#";
 		}
+
+		return texto;
+	}
+	public String toString() {
+		String texto = getNome() + "\n" + getDataDeNascimento() + "\n" + getDataDocadastro() + "\n" + getSexo() + "\n"
+				+ "\n" + getEmail() + "\n" + getTelefone()+"\n"+getStatus()+"\n"+getMatricula()+"\n"+getCpf();
 
 		return texto;
 	}
