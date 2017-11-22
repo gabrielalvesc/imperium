@@ -9,6 +9,7 @@ import br.com.imperium.exceptions.InstrutorNaoExisteException;
 public class MainTesteJO {
 
 	public static void main(String[] args) throws Exception {
+		//teste
 		String arquivoAlunos = "ArquivoAlunos.txt";
 		String arquivoInstrutores = "ArquivoInstrutores.txt";
 		AcademiaImperium academia = new AcademiaImperium();
